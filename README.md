@@ -9,7 +9,7 @@ L'exercice consiste à créer le backend d'un site de critiques de sauces piquan
 
 1) Tout d'abord, clonez le repository contenant le frontend 
 
-$ git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6
+`$ git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6`
 
 2) Clonez ensuite ce reposity pour ajouter le backend
 
