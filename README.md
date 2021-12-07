@@ -15,6 +15,8 @@ L'exercice consiste à créer le backend d'un site de critiques de sauces piquan
 
 3) Ajoutez un dossier nommé précisément images dans le dossier backend
 
+4) Ajouter le fichier reçu par mail dans le dossier backend
+
 # Mise en route du projet #
 
 1) Ouvrir un terminal de commande
