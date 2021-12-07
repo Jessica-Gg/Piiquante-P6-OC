@@ -1,6 +1,6 @@
 const Sauce = require('../models/sauces');
 const fs = require('fs');
-const { response } = require('express');
+const {response} = require('express');
 
 //Afficher toutes les sauces
 exports.getAllSauce = (req, res, next) => {
@@ -35,36 +35,35 @@ exports.createSauce = (req, res, next) => {
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   });
     newSauce.save()
-      .then(() => res.status(201).json({ message: 'Sauce enregistrée !'}))
+      .then(() => res.status(201).json({message: 'Sauce enregistrée !'}))
       .catch(error => res.status(400).json({error}));
 };
 
 //Modifier une sauce
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file ?
-    {
+    { 
       ...JSON.parse(req.body.sauce),
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    } : { ...req.body };
-    Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
-      .then(() => res.status(200).json({ message: 'Sauce modifiée !'}))
-      .catch(error => res.status(400).json({error}));
+    } : {...req.body};
+        Sauce.updateOne({_id: req.params.id}, {...sauceObject, _id: req.params.id})
+          .then(() => res.status(200).json({message: 'Sauce modifiée !'}))
+          .catch(error => res.status(400).json({error}));  
 };
 
 //Supprimer une sauce
 exports.deleteSauce = (req, res, next) => {
-  Sauce.findOne({ _id: req.params.id })
+  Sauce.findOne({_id: req.params.id})
     .then(Sauce => {
       const filename = Sauce.imageUrl.split('/images/')[1];
       fs.unlink(`images/${filename}`, () => {
-          Sauce.deleteOne({ _id: req.params.id })
+          Sauce.deleteOne({_id: req.params.id})
             .then(() => res.status(200).json({message: 'Sauce supprimée !'}))
-            .catch(error => res.status(400).json({ error }));
+            .catch(error => res.status(400).json({error}));
       });
     })
     .catch(error => res.status(500).json({error}));
 };
-
 
 //Gestion des likes et dislikes
 exports.rateSauce = (req, res, next) => {
@@ -81,7 +80,7 @@ exports.rateSauce = (req, res, next) => {
         $push: {usersLiked : userId},
         $inc: {likes : +1}
       })
-      .then(()=> res.status(200).json({message: 'Vous avez aimé cette sauce !'}))
+      .then(()=> res.status(200).json({message: 'Sauce likée'}))
       .catch((error) => res.status(400).json({error}))
   }
 
@@ -94,7 +93,7 @@ exports.rateSauce = (req, res, next) => {
         $push: {usersDisliked: userId},
         $inc: {dislikes: +1}
       })
-      .then(() => res.status(200).json({message: 'Vous n \'avez pas aimé cette sauce !'}))
+      .then(() => res.status(200).json({message: 'Sauce dislikée'}))
       .catch((error) => res.status(400).json({error}))
   }
 
@@ -110,7 +109,7 @@ exports.rateSauce = (req, res, next) => {
                       $pull: {usersLiked: userId},
                       $inc: {likes: -1}
                   })
-                  .then(() => res.status(200).json({message: 'Votre like a été annulé'}))
+                  .then(() => res.status(200).json({message: 'Le like a été annulé'}))
                   .catch((error) => res.status(400).json({error}));
           }
 
@@ -121,7 +120,7 @@ exports.rateSauce = (req, res, next) => {
                   $pull: {usersDisliked: userId},
                   $inc: {dislikes: -1}
                   })
-                  .then(() => res.status(200).json({message: 'Votre dislike a été annulé'}))
+                  .then(() => res.status(200).json({message: 'Le dislike a été annulé'}))
                   .catch((error) => res.status(400).json({error}));
           }
       })

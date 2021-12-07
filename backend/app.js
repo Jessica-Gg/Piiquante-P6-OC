@@ -3,19 +3,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
+const connect = require('./connect');
+
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 
-//Connexion à MongoDB
-mongoose.connect('mongodb+srv://Melrosae:OBE5zk6ceZWxke2F@cluster0.zs9gs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-  {useNewUrlParser: true,
-    useUnifiedTopology: true})
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
-
 const app = express();
 
-//Headers erreurs CORS
+//Headers CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -23,8 +18,10 @@ app.use((req, res, next) => {
   next();
 });
 
+//Conversion en JSON
 app.use(bodyParser.json());
 
+//Gestion des images
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/sauces', saucesRoutes);
