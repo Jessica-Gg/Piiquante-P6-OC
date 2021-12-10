@@ -7,22 +7,35 @@ L'exercice consiste à créer le backend d'un site de critiques de sauces piquan
 
 # Installation #
 
-1) Tout d'abord, clonez le repository contenant le frontend 
+1) Assurez vous que Node.js est bien installé sur votre ordinateur.
 
-`$ git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6`
+2) Créez un nouveau dossier Projet 6 sur votre bureau
 
-2) Clonez ensuite ce reposity pour ajouter le backend
+# Frontend #
+
+1) Dans le dossier Projet 6, créez un sous-dossier frontend. 
+
+2) Clonez le repository contenant le frontend à cet emplacement en collant le lien ci-dessous dans votre terminal de commande : 
+
+`git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6` frontend
+
+3) Dans le terminal de commande entrez la commande `cd frontend`, puis `npm install` et `npm install sass`
+
+# Backend #
+
+1) Dans le dossier Projet 6, créez un nouveau sous dossier nommé backend. 
+
+2) Clonez ce reposity pour ajouter le backend dans ce nouveau sous-dossier.
 
 3) Ajoutez un dossier nommé précisément images dans le dossier backend
 
 4) Ajouter le fichier reçu par mail dans le dossier backend
 
-# Mise en route du projet #
+5) Dans un nouveau terminal de commande, tout en gardant le premier ouvert, entrez la commande `cd backend`, puis `npm install` et `node server`
 
-1) Ouvrir un terminal de commande
+# Lancer le projet #
 
-2) Entrez la commande `cd backend` puis `node server`
+Dans le terminal de commande du frontend, entrez la commande `npm start`. 
+Une page doit s'ouvrir dans votre navigateur. 
 
-3) Dans un nouveau terminal de commande entrez la commande `cd frontend` puis `npm start`
-
-Une page devrait alors s'ouvrir dans votre navigateur. 
+Pour vous identifiez : entrez une adresse mail valide et un mot de passe.
