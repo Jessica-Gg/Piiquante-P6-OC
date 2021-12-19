@@ -18,7 +18,7 @@ Si ce n'est pas le cas, voici le lien pour le télécharger : https://nodejs.org
 
 2) Clonez le repository contenant le frontend à cet emplacement en copiant la ligne ci-dessous dans votre terminal de commande : 
 
->> `git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6` frontend
+>> `git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6`
 
 3) Dans le terminal de commande entrez dans l'ordre les commandes `cd frontend`, puis `npm install` et `npm install sass`
 
@@ -28,7 +28,7 @@ Si ce n'est pas le cas, voici le lien pour le télécharger : https://nodejs.org
 
 2) Clonez ce reposity en copiant la ligne ci-dessous pour ajouter le backend dans ce nouveau sous-dossier.
 
->> `git clone https://github.com/Jessica-Gg/Piiquante-P6-OC.git` backend
+>> `git clone https://github.com/Jessica-Gg/Piiquante-P6-OC.git`
 
 3) Ajoutez un dossier nommé précisément images dans le dossier backend
 
@@ -42,3 +42,9 @@ Dans le terminal de commande du frontend, entrez la commande `npm start`.
 Une page doit s'ouvrir dans votre navigateur. 
 
 Pour vous identifiez : entrez une adresse mail valide et un mot de passe.
+
+# Erreur possible #
+
+Si vous obtenez une erreur : ‘hot-takes@1.0.0 start > run-script-os  This is meant to be run from within npm script. See https://github.com/charlesguse/run-script-os’  
+
+Dans le terminal de commande entrez pour résoudre le problème : `npm install --save-dev run-script-os`
